@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    ".dart_tool": true,
+    ".git": true,
+    ".gitignore": true,
+    ".idea": true,
+    ".metadata": true,
+    "analysis_options.yaml": true,
+    "android": true,
+    "ios": true,
+    "linux": true,
+    "macos": true,
+    "medhealth.iml": true,
+    "pubspec.lock": true,
+    "web": true,
+    "windows": true
+  }
+}
