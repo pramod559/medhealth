@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GeneralLogoSpace extends StatelessWidget {
-  final Widget child;
-  GeneralLogoSpace({super.key, required this.child});
+  final Widget? child;
+  const GeneralLogoSpace({super.key, this.child});
 
   @override
   Widget build(BuildContext context) {

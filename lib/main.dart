@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medhealth/pages/splash_screen.dart';
+import 'package:medhealth/theme.dart';
 import 'package:medhealth/widget/button_primary.dart';
 import 'package:medhealth/widget/general_logo_space.dart';
 
@@ -16,10 +17,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primaryColor: greenColor,
       ),
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }

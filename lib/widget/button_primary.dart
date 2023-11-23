@@ -3,11 +3,13 @@ import 'package:medhealth/theme.dart';
 
 class ButtonPrimary extends StatelessWidget {
   final String text;
-  final Function onTap;
-  ButtonPrimary({
+  final Function? onTap;
+  final Color? color;
+  const ButtonPrimary({
     super.key,
     required this.text,
-    required this.onTap,
+    this.onTap,
+    this.color,
   });
 
   @override
@@ -16,12 +18,15 @@ class ButtonPrimary extends StatelessWidget {
       width: MediaQuery.of(context).size.width - 100,
       height: 50,
       child: ElevatedButton(
-        onPressed: onTap(),
+        onPressed: onTap!(),
         style: ElevatedButton.styleFrom(
-            primary: greenColor,
+            backgroundColor: greenColor,
+            foregroundColor: greenColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20))),
-        child: Text(text),
+        child: Text(
+          text,
+        ),
       ),
     );
   }
