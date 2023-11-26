@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -30,33 +32,37 @@ class _RegisterPagesState extends State<RegisterPages> {
     });
   }
 
-  registerSubmit() async {
+  registerSubmit(BuildContext context) async {
     var registerUrl = Uri.parse(BASEURL.apiRegister);
     final response = await http.post(registerUrl, body: {
-      "fullname": fullNameController,
-      "email": emailController,
-      "phone": phoneController,
-      "address": addressController,
-      "password": passwordController,
+      "fullname": fullNameController.text,
+      "email": emailController.text,
+      "phone": phoneController.text,
+      "address": addressController.text,
+      "password": passwordController.text,
     });
     final data = jsonDecode(response.body);
     int value = data['value'];
     String message = data['message'];
+    // rest of your code...
     if (value == 1) {
       showDialog(
+          //  barrierDismissible: false,
           context: context,
           builder: (context) => AlertDialog(
                 title: const Text('Information'),
                 content: Text(message),
                 actions: [
-                  TextButton(onPressed: () {}, child: const Text("ok"))
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text("ok"),
+                  )
                 ],
               ));
-      setState(() {
-        //code
-      });
+      setState(() {});
     } else {
       showDialog(
+          //  barrierDismissible: false,
           context: context,
           builder: (context) => AlertDialog(
                 title: const Text('Information'),
@@ -69,11 +75,52 @@ class _RegisterPagesState extends State<RegisterPages> {
                       child: const Text("ok"))
                 ],
               ));
+      setState(() {});
     }
-    setState(() {
-      //code
-    });
   }
+
+  // rregisterSubmit() async {
+  //   var registerUrl = Uri.parse(BASEURL.apiRegister);
+  //   final response = await http.post(registerUrl, body: {
+  //     "fullname": fullNameController,
+  //     "email": emailController,
+  //     "phone": phoneController,
+  //     "address": addressController,
+  //     "password": passwordController,
+  //   });
+  //   final data = jsonDecode(response.body);
+  //   int value = data['value'];
+  //   String message = data['message'];
+  //   if (value == 1) {
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         context: context,
+  //         builder: (context) => AlertDialog(
+  //               title: const Text('Information'),
+  //               content: Text(message),
+  //               actions: [
+  //                 TextButton(onPressed: () {}, child: const Text("ok"))
+  //               ],
+  //             ));
+  //     setState(() {});
+  //   } else {
+  //     showDialog(
+  //         barrierDismissible: false,
+  //         builder: (context) => AlertDialog(
+  //               title: const Text('Information'),
+  //               content: Text(message),
+  //               actions: [
+  //                 TextButton(
+  //                     onPressed: () {
+  //                       Navigator.pop(context);
+  //                     },
+  //                     child: const Text("ok"))
+  //               ],
+  //             ),
+  //         context: context);
+  //   }
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -245,7 +292,6 @@ class _RegisterPagesState extends State<RegisterPages> {
                   child: ButtonPrimary(
                     text: "REGISTER",
                     onTap: () {
-                      //
                       if (fullNameController.text.isEmpty ||
                           emailController.text.isEmpty ||
                           phoneController.text.isEmpty ||
@@ -264,8 +310,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                                   ],
                                 ));
                       } else {
-                        //
-                        registerSubmit();
+                        registerSubmit(context);
                       }
                     },
                   ),

@@ -18,15 +18,13 @@ class ButtonPrimary extends StatelessWidget {
       width: MediaQuery.of(context).size.width - 100,
       height: 50,
       child: ElevatedButton(
-        onPressed: onTap!(),
+        onPressed: onTap as void Function()?,
         style: ElevatedButton.styleFrom(
-            backgroundColor: greenColor,
+            backgroundColor: Colors.green,
             foregroundColor: greenColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20))),
-        child: Text(
-          text,
-        ),
+        child: Text(text, style: TextStyle(color: Colors.white)),
       ),
     );
   }

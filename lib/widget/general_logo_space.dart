@@ -12,10 +12,10 @@ class GeneralLogoSpace extends StatelessWidget {
           height: 50,
         ),
         Image.asset(
-          "logo.png",
+          "assets/logo.png",
           width: 115,
         ),
-        child ?? const SizedBox()
+        child ?? SizedBox()
       ]),
     );
   }

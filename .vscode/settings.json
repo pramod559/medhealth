@@ -6,9 +6,6 @@
     ".idea": true,
     ".metadata": true,
     "analysis_options.yaml": true,
-    "android": true,
-    "ios": true,
-    "linux": true,
     "macos": true,
     "medhealth.iml": true,
     "pubspec.lock": true,
@@ -19,7 +16,8 @@
     ".vscode": true,
     "build": true,
     "README.md": true,
-    "test": true
+    "test": true,
+    "ios": true
   },
   "dart.flutterSdkPath": "E:\\flutter_windows_3.13.8-stable\\flutter"
 }

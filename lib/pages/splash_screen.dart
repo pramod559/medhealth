@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
           //   height: 45,
           // ),
           WidgetIlustration(
-            image: "splash_ilustration.png",
+            image: "assets/splash_ilustration.png",
             title: "Find your medical\nsolution",
             subtitle1: "Consult with a doctor",
             subtitle2: "whereever and whenever you want",
