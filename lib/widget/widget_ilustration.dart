@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:medhealth/theme.dart';
 
 class WidgetIlustration extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
   final String image;
   final String title;
   final String subtitle1;
   final String subtitle2;
-  WidgetIlustration({
+  const WidgetIlustration({
     super.key,
-    required this.child,
+    this.child,
     required this.image,
     required this.title,
     required this.subtitle1,
@@ -25,7 +25,7 @@ class WidgetIlustration extends StatelessWidget {
           image,
           width: 150,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(
@@ -36,7 +36,7 @@ class WidgetIlustration extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        SizedBox(
+        const SizedBox(
           height: 11,
         ),
         Column(
@@ -49,7 +49,7 @@ class WidgetIlustration extends StatelessWidget {
                 color: greyLightColor,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Text(
@@ -61,10 +61,10 @@ class WidgetIlustration extends StatelessWidget {
                 color: greyLightColor,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            child ?? SizedBox(),
+            child ?? const SizedBox(),
           ],
         )
       ],
