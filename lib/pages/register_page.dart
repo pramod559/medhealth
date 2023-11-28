@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:medhealth/network/api/url_api.dart';
+import 'package:medhealth/pages/login_page.dart';
 
 import 'package:medhealth/theme.dart';
 import 'package:medhealth/widget/button_primary.dart';
@@ -54,7 +55,15 @@ class _RegisterPagesState extends State<RegisterPages> {
                 content: Text(message),
                 actions: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginPage(),
+                        ),
+                        (route) => false,
+                      );
+                    },
                     child: const Text("ok"),
                   )
                 ],
