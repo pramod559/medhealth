@@ -335,10 +335,21 @@ class _RegisterPagesState extends State<RegisterPages> {
                       style: lightTextStyle.copyWith(
                           color: greyLightColor, fontSize: 15),
                     ),
-                    Text(
-                      "Login Now",
-                      style: boldTextStyle.copyWith(
-                          color: greenColor, fontSize: 15),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginPage(),
+                          ),
+                          (route) => false,
+                        );
+                      },
+                      child: Text(
+                        "Login Now",
+                        style: boldTextStyle.copyWith(
+                            color: greenColor, fontSize: 15),
+                      ),
                     ),
                   ],
                 )

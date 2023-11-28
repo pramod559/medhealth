@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medhealth/pages/main_page.dart';
 import 'package:medhealth/pages/splash_screen.dart';
 import 'package:medhealth/theme.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: greenColor,
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const MainPage(),
     );
   }
 }
