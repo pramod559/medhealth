@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:medhealth/theme.dart';
 
 class CardProduct extends StatelessWidget {
-  final String imageProduct;
-  final String nameProduct;
-  final String price;
+  final String? imageProduct;
+  final String? nameProduct;
+  final String? price;
 
-  CardProduct({
-    Key? key,
-    required this.imageProduct,
-    required this.nameProduct,
-    required this.price,
-  }) : super(key: key);
+  const CardProduct({
+    super.key,
+    this.imageProduct,
+    this.nameProduct,
+    this.price,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +24,23 @@ class CardProduct extends StatelessWidget {
       child: Column(
         children: [
           Image.network(
-            imageProduct,
+            imageProduct!,
             width: 115,
             height: 76,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Text(
-            nameProduct,
+            nameProduct!,
             style: regularTextStyle,
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 14,
           ),
           Text(
-            price,
+            price!,
             style: boldTextStyle,
           ),
         ],

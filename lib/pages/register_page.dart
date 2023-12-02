@@ -59,7 +59,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => LoginPage(),
+                          builder: (context) => const LoginPage(),
                         ),
                         (route) => false,
                       );
@@ -340,7 +340,7 @@ class _RegisterPagesState extends State<RegisterPages> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginPage(),
+                            builder: (context) => const LoginPage(),
                           ),
                           (route) => false,
                         );

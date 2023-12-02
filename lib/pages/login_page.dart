@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:medhealth/network/api/url_api.dart';
 import 'package:medhealth/pages/register_page.dart';
@@ -12,7 +11,6 @@ import 'package:medhealth/theme.dart';
 import 'package:medhealth/widget/button_primary.dart';
 import 'package:medhealth/widget/general_logo_space.dart';
 
-import 'home_page.dart';
 import 'main_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  LoginSubmit(BuildContext context) async {
+  loginsubmit(BuildContext context) async {
     var urlLogin = Uri.parse(BASEURL.apiLogin);
     final response = await http.post(urlLogin, body: {
       "email": emailController.text,
@@ -57,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MainPage(),
+                          builder: (context) => const MainPage(),
                         ),
                         (route) => false,
                       );
@@ -193,7 +191,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ],
                                 ));
                       } else {
-                        LoginSubmit(context);
+                        loginsubmit(context);
                       }
                     },
                   ),
@@ -214,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RegisterPages(),
+                            builder: (context) => const RegisterPages(),
                           ),
                           (route) => false,
                         );

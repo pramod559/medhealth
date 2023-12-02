@@ -24,7 +24,7 @@ class ButtonPrimary extends StatelessWidget {
             foregroundColor: greenColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20))),
-        child: Text(text, style: TextStyle(color: Colors.white)),
+        child: Text(text, style: const TextStyle(color: Colors.white)),
       ),
     );
   }

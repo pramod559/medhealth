@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:medhealth/theme.dart';
 
 class CardCategory extends StatelessWidget {
-  CardCategory({
-    Key? key,
+  const CardCategory({
+    super.key,
     this.imageCategory,
     this.nameCategory,
-  }) : super(key: key);
+  });
   final String? imageCategory;
   final String? nameCategory;
 
@@ -18,7 +18,7 @@ class CardCategory extends StatelessWidget {
           imageCategory!,
           width: 65,
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Text(

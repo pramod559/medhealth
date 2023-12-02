@@ -14,9 +14,9 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectIndex = 0;
   final _pageList = [
-    HomePage(),
-    HistoryPage(),
-    ProfilePage(),
+    const HomePage(),
+    const HistoryPage(),
+    const ProfilePage(),
   ];
 
   onTappedItem(int index) {
@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(Icons.assignment), label: "History"),
