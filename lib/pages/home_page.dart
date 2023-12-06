@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:medhealth/network/api/url_api.dart';
 import 'package:medhealth/network/model/product_model.dart';
+import 'package:medhealth/pages/search_product.dart';
 import 'package:medhealth/theme.dart';
 import 'package:medhealth/widget/card_category.dart';
 import 'package:http/http.dart' as http;
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   List<CategoryWithProduct> listCategory = [];
   getCategory() async {
     listCategory.clear();
-    var urlCategory = BASEURL.categoryWithProduct;
+    var urlCategory = Uri.parse(BASEURL.categoryWithProduct);
 
     try {
       final response = await http.get(urlCategory);
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> getProduct() async {
     listProduct.clear();
-    var urlProduct = BASEURL.getProduct;
+    var urlProduct = Uri.parse(BASEURL.getProduct);
 
     try {
       final response = await http.get(urlProduct);
@@ -97,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.asset(
-                      "logo.png",
+                      "assets/logo.png",
                       width: 155,
                     ),
                     const SizedBox(
@@ -122,22 +123,30 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 24,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-              height: 55,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xffe4faf0)),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Color(0xffb1d8b2),
-                    ),
-                    hintText: "Search medicine ...",
-                    hintStyle: regularTextStyle.copyWith(
-                        color: const Color(0xffb0d8b2))),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SearchProduct()));
+              },
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                height: 55,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xffe4faf0)),
+                child: TextField(
+                  enabled: false,
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: Color(0xffb1d8b2),
+                      ),
+                      hintText: "Search medicine ...",
+                      hintStyle: regularTextStyle.copyWith(
+                          color: const Color(0xffb0d8b2))),
+                ),
               ),
             ),
             const SizedBox(

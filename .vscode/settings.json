@@ -15,7 +15,6 @@
     ".flutter-plugins-dependencies": true,
     ".vscode": true,
     "build": true,
-    "README.md": true,
     "test": true,
     "ios": true
   },

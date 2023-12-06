@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medhealth/pages/login_page.dart';
 import 'package:medhealth/pages/main_page.dart';
+import 'package:medhealth/pages/splash_screen.dart';
 import 'package:medhealth/theme.dart';
 
 void main() {
@@ -18,7 +20,8 @@ class MyApp extends StatelessWidget {
         primaryColor: greenColor,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainPage(),
+      home: MainPage(),
+      //     home: LoginPage(),
     );
   }
 }
