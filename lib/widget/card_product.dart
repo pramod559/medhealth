@@ -28,8 +28,8 @@ class CardProduct extends StatelessWidget {
         children: [
           Image.network(
             imageProduct,
-            width: 115,
-            height: 76,
+            width: 111,
+            height: 70,
           ),
           const SizedBox(
             height: 7,
@@ -43,7 +43,7 @@ class CardProduct extends StatelessWidget {
             height: 7,
           ),
           Text(
-            priceFormat.format(int.parse(price)),
+            "Rp${priceFormat.format(int.parse(price))}",
             style: boldTextStyle,
           ),
         ],

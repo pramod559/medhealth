@@ -1,15 +1,18 @@
+// ignore_for_file: non_constant_identifier_names, avoid_function_literals_in_foreach_calls, prefer_is_empty
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:medhealth/network/api/url_api.dart';
 import 'package:medhealth/network/model/product_model.dart';
+import 'package:medhealth/pages/detail_product.dart';
 import 'package:medhealth/theme.dart';
 import 'package:http/http.dart' as http;
 import 'package:medhealth/widget/card_product.dart';
 import 'package:medhealth/widget/widget_ilustration.dart';
 
 class SearchProduct extends StatefulWidget {
-  SearchProduct({super.key});
+  const SearchProduct({super.key});
 
   @override
   State<SearchProduct> createState() => _SearchProductState();
@@ -37,9 +40,7 @@ class _SearchProductState extends State<SearchProduct> {
               listProduct.add(ProductModel.fromJson(product));
             }
           });
-        } else {
-          print("Invalid data format. Expected a List.");
-        }
+        } else {}
       } else {
         print("Failed to load data. Status code: ${response.statusCode}");
       }
@@ -76,7 +77,7 @@ class _SearchProductState extends State<SearchProduct> {
         child: ListView(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(24, 24, 24, 0),
+              padding: const EdgeInsets.fromLTRB(24, 24, 24, 0),
               height: 70,
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,8 +93,8 @@ class _SearchProductState extends State<SearchProduct> {
                       ),
                     ),
                     Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 5),
                       width: MediaQuery.of(context).size.width - 100,
                       height: 55,
                       decoration: BoxDecoration(
@@ -116,7 +117,7 @@ class _SearchProductState extends State<SearchProduct> {
                   ]),
             ),
             searchController.text.isEmpty || listSearchProduct.length == 0
-                ? Padding(
+                ? const Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 24.0, vertical: 80),
                     child: WidgetIlustration(
@@ -127,9 +128,9 @@ class _SearchProductState extends State<SearchProduct> {
                     ),
                   )
                 : Container(
-                    padding: EdgeInsets.all(24),
+                    padding: const EdgeInsets.all(24),
                     child: GridView.builder(
-                      physics: ClampingScrollPhysics(),
+                      physics: const ClampingScrollPhysics(),
                       itemCount: listSearchProduct.length,
                       shrinkWrap: true,
                       gridDelegate:
@@ -141,7 +142,13 @@ class _SearchProductState extends State<SearchProduct> {
                       itemBuilder: (BuildContext context, int index) {
                         final y = listSearchProduct[index];
                         return InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DetailProduct(productModel: y)));
+                          },
                           child: CardProduct(
                             imageProduct: y.imageProduct,
                             nameProduct: y.nameProduct,

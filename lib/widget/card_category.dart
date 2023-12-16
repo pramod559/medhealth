@@ -16,7 +16,7 @@ class CardCategory extends StatelessWidget {
       children: [
         Image.asset(
           imageCategory!,
-          width: 65,
+          width: 55,
         ),
         const SizedBox(
           height: 10,

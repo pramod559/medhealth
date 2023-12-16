@@ -1,25 +1,15 @@
----
-#     fonts:
-#       - asset: fonts/TrajanPro.ttf
-#       - asset: fonts/TrajanPro_Bold.ttf
-#         weight: 700
-# see https://flutter.dev/custom-fonts/#
-# For details regarding fonts from package dependencies,
-#     fonts:
-#       - asset: fonts/Schyler-Regular.ttf
-#       - asset: fonts/Schyler-Italic.ttf
-#         style: italic
-#   - family: Trajan Pro
-# To add assets to your application, add an assets section, like this:
-assets:
-  - assets/logo.png
+
+name: medhealth
+publish_to: none
+version: 1.0.0+1
+
 dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
   flutter:
     sdk: flutter
   google_fonts: ^6.0.0
-  http: ^1.1.2
+  http: ^1.1.0
   intl: ^0.18.1
   shared_preferences: ^2.2.2
 description: A new Flutter project.
@@ -32,9 +22,10 @@ environment:
   sdk: '>=3.1.0 <4.0.0'
 flutter:
   uses-material-design: true
-name: medhealth
-publish_to: none
-version: 1.0.0+1
+  assets:
+    - assets/
+  
+
 
 #   - images/a_dot_ham.jpeg
 # An image asset can refer to one or more resolution-specific "variants", see
@@ -48,4 +39,15 @@ version: 1.0.0+1
 # example:
 # fonts:
 #   - family: Schyler
-#from-packages
+#from-packages#     fonts:
+#       - asset: fonts/TrajanPro.ttf
+#       - asset: fonts/TrajanPro_Bold.ttf
+#         weight: 700
+# see https://flutter.dev/custom-fonts/#
+# For details regarding fonts from package dependencies,
+#     fonts:
+#       - asset: fonts/Schyler-Regular.ttf
+#       - asset: fonts/Schyler-Italic.ttf
+#         style: italic
+#   - family: Trajan Pro
+# To add assets to your application, add an assets section, like this:

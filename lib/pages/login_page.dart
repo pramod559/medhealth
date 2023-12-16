@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  loginsubmit(BuildContext context) async {
+  loginsubmit() async {
     var urlLogin = Uri.parse(BASEURL.apiLogin);
     final response = await http.post(urlLogin, body: {
       "email": emailController.text,
@@ -48,8 +48,8 @@ class _LoginPageState extends State<LoginPage> {
     String email = data['email'];
     String phone = data['phone'];
     String address = data['address'];
+    // String status = data['status'];
     String createdAt = data['created_at'];
-
     // rest of your code...
     if (value == 1) {
       savePref(idUser, name, email, phone, address, createdAt);
@@ -69,7 +69,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         (route) => false,
                       );
-                      print(name);
                     },
                     child: const Text("ok"),
                   )
@@ -97,15 +96,21 @@ class _LoginPageState extends State<LoginPage> {
 
   savePref(String idUser, String name, String email, String phone,
       String address, String createdAt) async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    SharedPreferences sharedPreferencess =
+        await SharedPreferences.getInstance();
     setState(() {
-      sharedPreferences.setString(PrefProfile.idUser, idUser);
-      sharedPreferences.setString(PrefProfile.name, name);
-      sharedPreferences.setString(PrefProfile.email, email);
-      sharedPreferences.setString(PrefProfile.phone, phone);
-      sharedPreferences.setString(PrefProfile.address, address);
-      sharedPreferences.setString(PrefProfile.createdAt, createdAt);
+      sharedPreferencess.setString(PrefProfile.idUser, idUser);
+      sharedPreferencess.setString(PrefProfile.name, name);
+      sharedPreferencess.setString(PrefProfile.email, email);
+      sharedPreferencess.setString(PrefProfile.phone, phone);
+      sharedPreferencess.setString(PrefProfile.address, address);
+      sharedPreferencess.setString(PrefProfile.createdAt, createdAt);
     });
+  }
+
+  static Future<void> clearPrefs() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.clear();
   }
 
   // late String name;
@@ -221,7 +226,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ],
                                 ));
                       } else {
-                        loginsubmit(context);
+                        loginsubmit();
                       }
                     },
                   ),
